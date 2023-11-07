@@ -31,6 +31,7 @@ const openedMixin = (theme) => ({
   overflowX: "hidden",
   backgroundColor: "#181818 ",
   color: "white",
+  borderRight: "1px solid #060606",
 });
 
 const closedMixin = (theme) => ({
@@ -41,6 +42,7 @@ const closedMixin = (theme) => ({
   overflowX: "hidden",
   backgroundColor: "#181818 ",
   color: "white",
+  borderRight: "1px solid #060606",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
