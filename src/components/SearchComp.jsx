@@ -28,13 +28,17 @@ const SearchComp = () => {
             <Col lg={12}>
               <div className="search-content">
                 <input
-                  id="fullWidth"
                   placeholder="search movie"
                   className="inputfield"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <Button variant="success" onClick={getSearchData} type="button">
+                <Button
+                  variant="success"
+                  onClick={getSearchData}
+                  type="button"
+                  className="searchBtn"
+                >
                   search
                 </Button>
               </div>
