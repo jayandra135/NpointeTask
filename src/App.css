@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+.hero-section {
+  background-image: url("./assests/posterImg.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero-content {
   display: flex;
   flex-direction: column;
+  padding: 70px 10px;
+  color: white;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.hero-content h1 {
+  font-size: 3.1rem;
+  font-weight: 500;
+}
+
+.hero-content h3 {
+  font-size: 1.5rem;
+}
+
+.drawer {
+  background-color: #181818 !important;
+  color: white !important;
+}
+
+.navbartop {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.navbartop h2 {
+  font-size: 1.5rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.links:hover {
+  border: 1px solid yellow;
+  background-color: yellow;
+  color: black;
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: ease-in-out;
+  transition-duration: 0.2ms;
+}
+
+.main-section {
+  background-color: #181818;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sectionTop {
+  margin-top: 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Container h1 {
+  font-size: 1.5rem;
+}
+
+
+
+
+.card {
+  flex: 1;
+  flex-basis: 300px;
+  flex-grow: 0;
+
+  background: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+}
+
+.descriptions {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 255, 255, .7);
+  width: 100%;
+  height: 100%;
+  transition: all .7s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+  clip-path: circle(0% at 100% 100%);
+
+}
+
+.descriptions p {
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card:hover .descriptions {
+  left: 0px;
+
+  transition: all .7s ease-in-out;
+  clip-path: circle(75%);
+}
+
+.card:hover .descriptions h5 {
+  text-align: center;
+}
+
+.card:hover {
+  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+  transform: scale(.97);
+}
+
+.card:hover img {
+  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+  transform: scale(1.6) rotate(20deg);
+  filter: blur(3px);
+}
+
+.card h1 {
+  color: #ff3838;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+
+.card p {
+  line-height: 24px;
+  height: 70%;
+}
+
+.card button {
+  width: fit-content;
+  height: 40px;
+  cursor: pointer;
+  border-style: none;
+  background-color: #ff3838;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+  transition: all .5s ease-in-out;
+}
+
+.card button:hover {
+  transform: scale(.95) translateX(-5px);
+  transition: all .5s ease-in-out;
+}
+
+/* search section */
+
+.search-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+.search-content button {
+  width: 100px;
+
+}
+
+.inputfield {
+  background-color: #242731;
+  border-radius: 10px;
+  width: 50%;
+  border-color: black;
+  border: none;
+  height: 50px;
+  padding: 10px;
+  color: white;
+}
+
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+}
+
+/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: black;
+} */
+
+/* media query */
+
+@media screen and (max-width:576px) {
+
+
+  .hero-section {
+    background-image: url("./assests/posterImg.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 10px;
+    color: white;
+    text-transform: capitalize;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    font-weight: 700 !important;
+  }
+
+  .hero-content h3 {
+    font-size: 1rem;
+    font-weight: 400 !important;
+  }
+
+  .links {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+
+  .links:hover {
+    border: 1px solid yellow;
+    background-color: yellow;
+    color: black;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: ease-in-out;
+    transition-duration: 0.2ms;
   }
 }
