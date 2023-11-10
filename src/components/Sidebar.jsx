@@ -16,19 +16,26 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
 import { NavRoute } from "./NavRoute";
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { BsBell } from "react-icons/bs";
+import profile from "../assests/profileImg.jpg";
+import { AiOutlineWifi } from "react-icons/ai";
+import { GoDotFill } from "react-icons/go";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
+  height: "auto",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
+
   backgroundColor: "#181818 ",
   color: "white",
   borderRight: "1px solid #060606",
@@ -40,6 +47,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
+  height: "auto",
   backgroundColor: "#181818 ",
   color: "white",
   borderRight: "1px solid #060606",
@@ -68,6 +76,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
+
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -82,6 +91,7 @@ const Drawer = styled(MuiDrawer, {
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: "nowrap",
+
   boxSizing: "border-box",
   ...(open && {
     ...openedMixin(theme),
@@ -94,6 +104,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 const Sidebar = ({ children }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -102,6 +113,10 @@ const Sidebar = ({ children }) => {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const onFocusHandler = () => {
+    navigate("/search");
   };
   return (
     <>
@@ -121,12 +136,57 @@ const Sidebar = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
+            <IconButton
+              onClick={handleDrawerClose}
+              style={
+                open
+                  ? {
+                      display: "block",
+                      border: "2px solid #181818",
+                      borderRadius: "10px",
+                      padding: "2px 8px",
+                    }
+                  : { display: "none" }
+              }
+            >
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon style={{ color: "white" }} />
+              ) : (
+                <ChevronLeftIcon style={{ color: "white" }} />
+              )}
+            </IconButton>
             <div className="navbartop">
-              <Link to="/" className=" brand">
-                NPointe
+              <Paper
+                className="headerSearch"
+                component="form"
+                sx={{
+                  p: "2px 4px",
+                  display: "flex",
+                  alignItems: "center",
+                  width: 300,
+                }}
+              >
+                <IconButton
+                  type="button"
+                  sx={{ p: "10px" }}
+                  aria-label="search"
+                  style={{ color: "white" }}
+                >
+                  <SearchIcon />
+                </IconButton>
+                <InputBase
+                  sx={{ ml: 1, flex: 1 }}
+                  placeholder="Search everything"
+                  inputProps={{ "aria-label": "search google maps" }}
+                  style={{ color: "white" }}
+                  onFocus={onFocusHandler}
+                />
+              </Paper>
+              <Link to="#" className="displayNone">
+                <BsBell style={{ color: "white", fontSize: "20px" }} />
               </Link>
-              <Link to="/search" className="links">
-                Search
+              <Link className="profileImg displayNone" to="#">
+                <img src={profile} alt="" />
               </Link>
             </div>
           </Toolbar>
@@ -138,46 +198,92 @@ const Sidebar = ({ children }) => {
               color: "white",
             }}
           >
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? (
-                <ChevronRightIcon style={{ color: "white" }} />
-              ) : (
-                <ChevronLeftIcon style={{ color: "white" }} />
-              )}
-            </IconButton>
+            <div className="drawerHeader">
+              <p>N</p>
+              <h4>
+                Adze.<span style={{ color: "red" }}>DESIGN</span>
+              </h4>
+            </div>
           </DrawerHeader>
           <Divider />
-
-          {NavRoute.map((ele, index) => (
-            <List key={index}>
-              <ListItem disablePadding sx={{ display: "block" }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
+          <div className="leftDrawer">
+            <p
+              style={
+                open
+                  ? {
+                      display: "block",
+                    }
+                  : { display: "none" }
+              }
+            >
+              News Feed
+            </p>
+            {NavRoute.map((ele, index) => (
+              <List key={index} className="listDiv">
+                <ListItem
+                  disablePadding
+                  sx={{ display: "block" }}
+                  className={ele.label === "Browse" ? "active" : "listItem"}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
-                    style={{ color: "white" }}
                   >
-                    {ele.icons}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={ele.label}
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          ))}
-
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                      style={{ color: "white" }}
+                    >
+                      {ele.icons}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={ele.label}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      className="listLabel"
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            ))}
+          </div>
           <Divider />
+          <div
+            className="followDrawer"
+            style={
+              open
+                ? {
+                    display: "block",
+                  }
+                : { display: "none" }
+            }
+          >
+            <p>Following</p>
+
+            <div className="followProfile">
+              <img src={profile} alt="" />
+              <div>
+                <p>ikakot</p>
+                <p>
+                  <AiOutlineWifi />
+                </p>
+              </div>
+            </div>
+            <div className="followProfile">
+              <img src={profile} alt="" />
+              <div>
+                <p>ikakot</p>
+                <p>
+                  <GoDotFill style={{ color: "green" }} />
+                </p>
+              </div>
+            </div>
+          </div>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1 }}>
           <DrawerHeader />

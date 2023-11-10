@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const HomeComp = () => {
   return (
     <>
-      <Row>
+      <Row className="homeRow">
         <Col>
           <Sidebar>
             <Outlet />

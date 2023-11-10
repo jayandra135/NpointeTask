@@ -1,5 +1,5 @@
 .hero-section {
-  background-image: url("./assests/posterImg.jpg");
+  background-image: url("./assests/pale.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,19 +12,47 @@
 .hero-content {
   display: flex;
   flex-direction: column;
-  padding: 70px 10px;
+  justify-content: flex-start;
+  padding: 40px 10px;
   color: white;
   line-height: 1.4;
   text-transform: capitalize;
+  margin-left: 40px;
+  width: 100%;
+
+  /* margin-left: 40px; */
 }
 
 .hero-content h1 {
   font-size: 3.1rem;
   font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 20px;
 }
 
 .hero-content h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+
+.heroWatchBtn {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 20px;
+
+  width: 100px;
+}
+
+.heroLiveBtn {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 20px;
+
+  width: 100px;
+  text-align: center;
 }
 
 .drawer {
@@ -32,10 +60,17 @@
   color: white !important;
 }
 
+.headerSearch {
+  border-radius: 30px !important;
+  background-color: #181818 !important;
+  color: white !important;
+}
+
 .navbartop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 30px;
 
   width: 100%;
 }
@@ -82,103 +117,249 @@
 }
 
 
-
-
-.card {
-  flex: 1;
-  flex-basis: 300px;
-  flex-grow: 0;
-
-  background: #fff;
-  border: 2px solid #fff;
-  box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
-  cursor: pointer;
-  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/* sidebar */
+.listDiv {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding-top: 0px;
 }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
-}
+.listItem {
+  color: white;
+  transition: ease-in-out;
 
-.descriptions {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: rgba(255, 255, 255, .7);
-  width: 100%;
-  height: 100%;
-  transition: all .7s ease-in-out;
-  padding: 20px;
-  box-sizing: border-box;
-  clip-path: circle(0% at 100% 100%);
 
 }
 
-.descriptions p {
-  font-size: 0.8rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+.css-10hburv-MuiTypography-root {
+  font-size: 0.9rem !important;
 }
 
-.card:hover .descriptions {
-  left: 0px;
+.css-1m5i5w0-MuiButtonBase-root-MuiListItemButton-root {
 
-  transition: all .7s ease-in-out;
-  clip-path: circle(75%);
+  padding: 0px 15px !important;
 }
 
-.card:hover .descriptions h5 {
+.active {
+  background-color: red;
+  color: white;
+  border-radius: 30px;
+
+
   text-align: center;
+
 }
 
-.card:hover {
-  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
-  transform: scale(.97);
+.listItem:hover {
+  background-color: red;
+  color: white;
+  border-radius: 30px;
 }
 
-.card:hover img {
-  transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
-  transform: scale(1.6) rotate(20deg);
-  filter: blur(3px);
+/* drawer header */
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.card h1 {
-  color: #ff3838;
-  letter-spacing: 1px;
-  margin: 0px;
+.drawerHeader p {
+  background-color: red;
+  color: white;
+  border-radius: 40px;
+  padding: 5px 12px;
+  text-align: center;
+
 }
 
-.card p {
-  line-height: 24px;
-  height: 70%;
+.drawerHeader h4 {
+  font-size: 1rem;
 }
 
-.card button {
-  width: fit-content;
-  height: 40px;
-  cursor: pointer;
-  border-style: none;
-  background-color: #ff3838;
-  color: #fff;
-  font-size: 15px;
-  outline: none;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
-  transition: all .5s ease-in-out;
+/* left drawer */
+.followDrawer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px !important;
+  align-items: flex-start;
+  padding: 10px;
 }
 
-.card button:hover {
-  transform: scale(.95) translateX(-5px);
-  transition: all .5s ease-in-out;
+.followProfile {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.followProfile :nth-child(2) {
+  display: flex;
+  justify-items: center;
+  margin-top: 7px;
+  gap: 20px;
+  align-items: center;
+
+}
+
+.followProfile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.followDrawer p {
+  color: gray;
+}
+
+.leftDrawer p {
+
+  margin-left: 15px;
+  font-size: 1rem;
+  color: gray;
+
+
+}
+
+
+.profileImg img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+
+}
+
+.continueWatch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.continueWatch .selectForm {
+  color: white;
+  width: 200px;
+  height: 50px;
+  background-color: #222b31;
+  border: none;
+  border-radius: 20px;
+
+  padding: 10px;
+}
+
+.selectForm option {
+  color: white;
+  background-color: #222b31;
+  padding: 20px !important;
+  border: none !important;
+}
+
+.homeCard {
+  width: 100%;
+  border: none;
+  border-color: #222b31;
+  border-radius: 30px !important;
+  background-color: #181818 !important;
+  color: white;
+
+}
+
+.homeCard .card-body {
+  width: 100%;
+  padding: 0px;
+  border: none;
+
+}
+
+.homeCard .card-body img {
+  width: 100% !important;
+  height: 300px;
+}
+
+.homeCard .card-footer h5 {
+  color: white;
+  font-size: 1rem;
+}
+
+.homeFooterContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+
+
+.homeFooterContent img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.homeCheckIcons {
+  color: green;
+}
+
+.searchCard {
+  border: none !important;
+  border-radius: 0px !important;
+  position: relative;
+  padding: 10px;
+  background-color: #222b31 !important;
+
+}
+
+
+
+.cardBody {
+  width: 100%;
+  padding: 0px !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+
+}
+
+.cardBody img {
+  width: 100%;
+}
+
+.searchCard .price {
+  position: absolute;
+  top: 0%;
+  left: 40%;
+  z-index: 1;
+  background-color: orange;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 30px;
+}
+
+.searchCard.card-footer {
+  height: auto;
+  overflow: hidden;
+  /* background-color: #222b31 !important; */
+  border-radius: 0px !important;
+}
+
+.searchCard .card-footer h2 {
+  font-size: 1.2rem;
+  overflow: hidden;
+  color: white;
+}
+
+.searchCard .card-footer p {
+  font-size: 0.9rem;
+  color: aqua;
 }
 
 /* search section */
+
+.search-section {
+  padding: 20px;
+}
 
 .search-content {
   display: flex;
@@ -192,33 +373,122 @@
 
 }
 
-.inputfield {
-  background-color: #242731;
-  border-radius: 10px;
-  width: 50%;
-  border-color: black;
-  border: none;
+.searchToolbar {
+  width: 20%;
+}
+
+.searchToolbar a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.searchNavBar {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+  position: relative;
+  width: 100%;
+}
+
+.inputSearch {
+  box-shadow: none !important;
+  position: relative;
+}
+
+
+
+.searchNavProfile {
+  position: absolute;
+  margin-right: 5%;
+  right: 0%;
+
+  z-index: 1 !important;
+
+}
+
+.searchNavProfile img {
+  width: 50px;
   height: 50px;
+  border-radius: 50px;
+}
+
+.listbar {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 5% !important; */
+
+
+
+}
+
+.searchlistItem {
+  color: white;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.searchlistItem:hover {
+  background-color: #222b31;
+  color: #ff424f;
+
+}
+
+/* last activity */
+.lastActivity {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7%;
+  margin-top: 2%;
+}
+
+.lastActivity h5 {
+  font-size: 1rem;
+}
+
+.activityDiv {
+  display: flex;
   padding: 10px;
+  justify-content: space-around !important;
+  gap: 10px;
+}
+
+.activityDiv img {
+  width: 80px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.activityName {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.activityName h6 {
+  font-size: 0.8rem;
+  color: #ff424f;
+}
+
+.activityName h6 span {
   color: white;
 }
 
-
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-  color: white !important;
+.activityName p {
+  font-size: 0.9rem;
+  color: gray;
 }
 
-/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-  border-color: black;
-} */
-
 /* media query */
+/* @media screen and (width:576px) {} */
 
 @media screen and (max-width:576px) {
 
 
   .hero-section {
-    background-image: url("./assests/posterImg.jpg");
+
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -233,6 +503,24 @@
     padding: 40px 10px;
     color: white;
     text-transform: capitalize;
+    margin-left: 10px;
+
+  }
+
+  .hero-content :nth-child(2) {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 4px !important;
+  }
+
+
+  .heroWatchBtn {
+    background-color: red !important;
+    color: white !important;
+    border: none;
+    padding: 4px 8px !important;
+    border-radius: 20px;
+    height: 40px;
   }
 
   .hero-content h1 {
@@ -268,5 +556,42 @@
 
   .searchBtn {
     width: 250px !important;
+  }
+
+  .displayNone {
+    display: none;
+  }
+
+  .HeadingHome {
+    font-size: 1rem !important;
+  }
+
+  /* search page */
+  .searchToolbar {
+    width: 100%;
+  }
+
+  .searchCard .card-footer {
+    display: none;
+  }
+
+  .searchCard .price {
+    display: none;
+  }
+
+  .TabRow1 {
+    display: contents !important;
+  }
+
+  .TabRow2 {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .searchCard .card-footer h2 {
+    font-size: 1rem;
+
   }
 }
